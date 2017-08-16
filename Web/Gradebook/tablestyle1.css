@@ -1,0 +1,162 @@
+/*	 Jason Hammond
+     CSCI 4500 - Mobile Computing
+     Cueva-Parra
+     Homework Assignment 3
+
+	 CSS stylesheet for an online gradebook . Homework assignment. 
+	 Intended for use with gradebook.html. */
+
+/*****************************************************************************/
+
+
+/* To facilitate responsive design by including border space with content box
+   for height and width measurements */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #e6e6ff;
+}
+
+/* Default transparent background for all containers */
+div {
+	background-color: transparent;
+}
+
+/* Total content container, for responsive design. Encapsulates entire page. */
+#whole-page {
+	width: 100%;
+	background-color: transparent;
+	margin: auto;
+}
+
+/* shaded div for graphical effect on table */
+.shaded {
+	margin: auto;
+	padding: 30px;
+
+	border-width: 12px;
+	border-style: solid;
+	border-radius: 12px;
+	box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.5),
+				inset 0px 0px 6px 4px rgba(0,0,0,0.7);
+	border-style: solid;
+	border-color: #b32400;
+	background: #ffffdd;
+}
+
+
+/* *** *** *** COLUMNS *** *** *** */
+
+/* For mobile (small screen): -- mobile-first design */
+[class*="col-"] {
+	width:100%;
+    float: left;
+    padding: 15px;
+    border: 1px solid transparent;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+	.col-1 {width:8.33%;}
+	.col-2 {width:16.66%;}
+	.col-3 {width:25%;}
+	.col-4 {width:33.33%;}
+	.col-5 {width:41.66%;}
+	.col-6 {width:50%;}
+	.col-7 {width:58.33%;}
+	.col-8 {width:66.66%;}
+	.col-9 {width:75%;}
+	.col-10 {width:83.33%;}
+	.col-11 {width:91.66%;}
+	.col-12 {width:100%;}
+}
+
+/* Clear flow to prevent unwanted ugliness */
+.row::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+/* *** *** *** *** *** *** *** *** *** *** *** *** */
+
+h1 {
+	margin: auto;
+	margin-bottom: 32px;
+	padding: auto;
+	border: 1px solid transparent;
+	text-align: center;
+}
+
+table, th, td {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+	padding: auto;
+	background: transparent;
+/*	border-collapse: collapse;
+*/
+}
+
+/* Formatting for table */
+#grtable {
+	background: white;
+	border: 4px solid #2200cc;
+	box-shadow: 2px 2px 6px 4px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+	border: 1pt solid black;
+}
+
+th {
+	font-weight: bold;
+}
+
+td {
+	text-align: center;
+	background: white;
+}
+
+/* Color for gray cells, per example */
+.tgray {
+	background-color: #d9d9d9;
+}
+
+h1 {
+	font-family: ubuntu;
+	font-size: 300%;
+}
+
+/* Styling for button */
+#gradeButton {
+	margin: auto;
+	height: 36px; max-height: 100%;
+	width: 128px; max-width: 100%;
+	background: #8300dd;
+	border: 1px solid black;
+	border-radius: 3px;
+	display: block;
+	font-size: 9pt;
+	font-weight: bold;
+	color: #e6e6ff;
+}

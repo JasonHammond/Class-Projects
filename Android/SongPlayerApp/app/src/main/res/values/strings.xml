@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Song Player App</string>
+    <string name="button1text">Sound 1</string>
+    <string name="button2text">Sound 2</string>
+</resources>

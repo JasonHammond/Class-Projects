@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/load"
+    android:layout_width="96dp"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/save"
+    android:layout_toRightOf="@id/save"
+    android:text="@string/load_button"
+    android:onClick="loadClicked" />

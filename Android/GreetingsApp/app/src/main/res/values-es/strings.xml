@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Saludos Aplicación</string>
+    <string name="enter_fname">Escriba su nombre</string>
+    <string name="enter_lname">Escriba su apellido</string>
+</resources>

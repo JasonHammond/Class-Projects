@@ -1,0 +1,19 @@
+100 Customers
+2 Seconds to Greet
+3 Seconds to use Vault (Only ONE Teller per Vault at a time!)
+1 Second to say Goodbye
+
+
+Tellers          Vaults         Time(seconds)		Speedup(time/Serial time)			Gain per Vault		Gain per Teller
+
+1					1				600					1.0000								1.0000				1.0000
+2					1				303					1.9802								1.9802				0.9901
+
+2					2				306					1.9608								0.9804				0.9804
+4					2				156					3.8462								1.9231				0.9615
+
+4					4				150					4.0000								1.0000				1.0000
+8					4				78					7.6923								1.9231				0.9615
+
+8					8				78					7.6923								1.9231				1.9231
+16					8				45					13.3333								1.6667				0.8333

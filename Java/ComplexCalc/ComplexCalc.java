@@ -1,0 +1,161 @@
+/*Jason Hammond
+  CSCI 4100 - Assignment 1
+  Dr. Cueva-Parra
+
+This program adds, subtracts, multiplies, and divides complex numbers.
+Use is pretty straightforward; just follow the prompts.
+Requires Complex.java class file.
+----------------------------------------------------------------------*/
+
+
+import java.util.Scanner;
+
+public class ComplexCalc {
+    static public void main(String[] args){
+
+        Complex term1 = new Complex(); 				//First imaginary term
+        Complex term2 = new Complex();					//Second imaginary term
+        Complex sol = new Complex();				//Solution
+        Scanner in = new Scanner(System.in);			//To retrieve and
+        double a;										//store user input
+        char ch = 'a';								//Menu selection
+
+        //Menu
+        while(ch != 'e' && ch != 'E'){
+            System.out.println("COMPLEX NUMBER CALCULATOR\n\n"
+                              + "a) ADDITION\n"
+                              + "b) SUBTRACTION\n"
+                              + "c) PRODUCT\n"
+                              + "d) DIVISION\n"
+                              + "e) EXIT\n\n"
+                      + "Enter the index for the task you want to perform: ");
+
+            ch = in.next().charAt(0);
+
+        //Menu switch
+            switch (ch) {
+
+                        //Case A - Addition
+                case 'a': case 'A': System.out.println("Let's add some complex numbers!\n"
+                        + "Please give me the real part of the first complex number: ");
+                        a = in.nextDouble();
+                        term1.changeReal(a);
+
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term1.changeImag(a);
+
+                        System.out.println("\nNow for the second (real portion): ");
+                        a = in.nextDouble();
+                        term2.changeReal(a);	
+
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term2.changeImag(a);
+
+                        //Calculation and output
+                        sol = term1.complexAdd(term2);
+                        System.out.println("The sum of " + term1.getReal() 
+                                          + "+" + term1.getImag()
+                                          + "i and " + term2.getReal() + "+"
+                                          + term2.getImag() + "i is "
+                                          + sol.getReal() + "+" 
+                                          + sol.getImag() + "i.\n");
+                    break;
+
+                        //Case B - Subtraction
+                case 'b': case 'B': System.out.println("Let's subtract some complex numbers!\n"
+                        + "Please give me the real part of the first complex number: ");
+                        a = in.nextDouble();
+                        term1.changeReal(a);
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term1.changeImag(a);
+
+                        System.out.println("\nNow for the second (real portion): ");
+                        a = in.nextDouble();
+                        term2.changeReal(a);
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term2.changeImag(a);
+
+                        //Calculation and output
+                        sol = term1.complexSubtract(term2);
+                        System.out.println("The difference between " + term1.getReal() 
+                            + "+" + term1.getImag()
+                            + "i and " + term2.getReal() + "+" 
+                            + term2.getImag() + "i is "
+                            + sol.getReal() + "+" 
+                            + sol.getImag() + "i.\n");
+                    break;
+
+                        //Case C - Multiplication
+                case 'c': case 'C': System.out.println("Let's multiply some complex numbers!\n"
+                    + "Please give me the real part of the first complex number: ");
+                        a = in.nextDouble();
+                        term1.changeReal(a);
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term1.changeImag(a);
+
+                        System.out.println("\nNow for the second (real portion): ");
+                        a = in.nextDouble();
+                        term2.changeReal(a);						
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term2.changeImag(a);
+
+                        //Calculation and output
+                        sol = term1.complexMult(term2);
+                        System.out.println("The product of " + term1.getReal() 
+                            + "+" + term1.getImag()
+                            + "i and " + term2.getReal() + "+" 
+                            + term2.getImag() + "i is "
+                            + sol.getReal() + "+" 
+                            + sol.getImag() + "i.\n");
+                    break;
+
+                        //Case D - Division
+                case 'd': case 'D': System.out.println("Let's divide some complex numbers!\n"
+                    + "Please give me the real part of the first complex number: ");
+                        a = in.nextDouble();
+                        term1.changeReal(a);
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term1.changeImag(a);
+
+                        System.out.println("\nNow for the second (real portion): ");
+                        a = in.nextDouble();
+                        term2.changeReal(a);
+                        System.out.println("\n...and the imaginary part: ");
+                        a = in.nextDouble();
+                        term2.changeImag(a);
+
+                        //Check for divide by 0
+                    if(term2.getReal() == 0 && term2.getImag() == 0){
+                        System.out.println("\n...now why'd you have to go and do that?\n I'm outta here!\n");
+                        System.exit(0);
+                    }//end error check
+
+                    //Calculation and output
+                    sol = term1.complexDiv(term2);
+                    System.out.println("Dividing " + term1.getReal() 
+                        + "+" + term1.getImag()
+                        + "i from " + term2.getReal() + "+" 
+                        + term2.getImag() + "i gives "
+                        + sol.getReal() + "+" 
+                        + sol.getImag() + "i.\n");
+                    break;
+
+                        //Case E - Exit
+                case 'e': case 'E': System.exit(0);
+
+                        //Error handling for invalid input
+                default: System.out.println("Invalid input, please try again.\n\n");
+                    break;
+            }//end switch
+        }//end while
+
+    }//end main
+
+}//end class

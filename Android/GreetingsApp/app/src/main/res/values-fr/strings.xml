@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Salutations App</string>
+    <string name="enter_fname">Entrez le prénom</string>
+    <string name="enter_lname">Entrez le nom de familie</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Save Text App</string>
+    <string name="enter_text">Enter Text</string>
+    <string name="edit_hint"> </string>
+    <string name="save_button">Save</string>
+    <string name="load_button">Load</string>
+    <string name="load_header">Text from file:</string>
+</resources>

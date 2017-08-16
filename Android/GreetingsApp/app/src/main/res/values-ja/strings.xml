@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">挨拶のApp</string>
+    <string name="enter_fname">名前を入力</string>
+    <string name="enter_lname">姓を入力してください</string>
+</resources>

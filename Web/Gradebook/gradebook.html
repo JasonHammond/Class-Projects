@@ -1,0 +1,101 @@
+<!-- Jason Hammond
+     CSCI 4500 - Mobile Computing
+     Cueva-Parra
+     Homework Assignment 3
+
+	 HTML code for an online gradebook -- note that no data persistence
+     exists. Homework assignment. 
+	 Intended for use with files linked in head.-->
+
+<!---------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+	<head>
+
+		<link rel="stylesheet" type="text/css" href="tablestyle1.css" />
+		<script src="grades.js"></script>		
+
+		
+		<title>HW 3 Table</title>
+		<meta name="viewport" 
+			  		content="width=device-width, initial-scale=1.0"/>
+		<meta content="text/html"; charset='UTF-8' />
+		<meta name="description" content="HTML Gradebook" />
+	<!-- Be thinking about keywords. -->
+		<meta name="keywords" content="Gradebook, Homework, Assignment, 
+					HTML, CSS, Javascript" />
+		<meta name="author" content="Jason Hammond" />
+
+	</head>
+
+
+	<body>
+		
+		<div class="whole-page">
+			<div class="col-12 col-m-12">
+				<h1>Grade Book for CSCI 4500</h1>
+			</div>
+
+		<!--Table -->
+			<div class="col-3"> &nbsp; </div>
+			<div class="col-6 col-m-12">
+				<div class="shaded">
+					<table id="grtable">
+						<tr>
+							<th class="tgray">Student ID</th>
+							<th class="tgray">Name</th>
+							<th class="tgray">HW1</th>
+							<th class="tgray">HW2</th>
+							<th class="tgray">Midterm</th>
+							<th class="tgray">Final Exam</th>
+						</tr>
+	
+						<tr>
+							<td class="tgray">1</td>
+							<td class="tgray">Tom Sawyer</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="tgray">2</td>
+							<td class="tgray">Neil Armstrong</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="tgray">3</td>
+							<td class="tgray">Jack Cruise</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-3"> &nbsp; </div>
+
+
+		<!-- Button to execute script -->
+			<div class="col-5 col-m-5"> &nbsp; </div>
+			<div class="col-2 col-m-2">
+				<button id="gradeButton" onclick="changeGrade()">
+					Set/Update Grade
+				</button>
+			</div>
+			<div class="col-5 col-m-5"> &nbsp; </div>
+			</div>
+		
+		</div>
+	</body>
+</html>

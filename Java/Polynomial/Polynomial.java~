@@ -1,0 +1,95 @@
+/*Jason Hammond
+  CSCI4100 - Dr. Cueva-Parra
+  Assignment 2
+
+  This class holds and manipulates polynomials of the form 
+  c(0) + c(1)x + c(2)x^2 + ... + c(n)x^n.
+-------------------------------------------------------------*/
+import java.lang.Math;
+import java.lang.Object;
+
+public class Polynomial {
+	private int[] coef;
+
+	public Polynomial() {
+		coef = new int[1];
+		coef[0] = 0;
+	} //end default constructor for Polynomial
+
+	//generate a polynomial of degree maxDegree
+	public Polynomial(int maxDegree) {
+		coef = new int[maxDegree];
+		for(int i=0; i<(maxDegree);i++)
+			coef[i] = 0;
+	} //end Polynomial constructor
+
+	//generate a polynomial such that the elements of coef correspond
+	//to each value of c
+	public Polynomial(int[] coe) {
+		coef = new int[coe.length];
+		for(int i=0; i<coe.length; i++)
+			coef[i] = coe[i];
+	} //end Polynomial constructor
+
+	//retrieve the coefficient of term with degree power
+	public int getCoefficient(int power) {
+		return coef[power];
+	} //end getCoefficient method
+
+	//change the coefficient coef of term with degree power
+	public void setCoefficient(int coe, int power) {
+		coef[coef.length-power-1] = coe;
+	} //end setCoefficient method
+
+	//return entire polynomial as a string
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		for(int i=0; i<coef.length; i++) {
+			if(coef.length-i > 2)
+				str.append(String.format("%dx^%d + ", coef[i], coef.length-i-1));
+			else if(coef.length-i == 2)
+				str.append(String.format("%dx + ", coef[i]));
+			else str.append(String.format("%d", coef[i]));
+		}
+		return str.toString();
+	} //end toString method
+
+	public int sizeOf() {
+		return coef.length;
+	} //end sizeOf method
+
+	//evaluate polynomial with given x, return solution
+	public double evaluate(double x) {
+		double result = 0;
+		for(int i=0; i<coef.length;i++)
+			result = coef[i] * Math.pow(x, (coef.length-i-1));
+	return result;
+	} //end evaluate method
+
+	//return polynomial that represents the derivative of p
+	public static Polynomial derivative(Polynomial p) {
+	Polynomial deriv = new Polynomial(p.coef.length-1);
+	for(int i=0; i<deriv.coef.length; i++)
+		deriv.coef[i] = (p.coef.length-i-1) * p.coef[i+1];
+	return deriv;	
+	} //end derivative method
+
+	//return root of polynomial, calculated with Bisection Method
+	public double bisection(double a, double b) {	
+		double tolerance = 0.000001;		
+		double c = 0.0;
+	
+		if(a == 0 || b == 0 || (a > 0 && b > 0) || (a < 0 && b < 0))
+			throw new IllegalArgumentException("Invalid input, please try again.");
+		while(b-a > tolerance) {
+			c = (a+b)/2;
+			if(evaluate(c) == 0 || c < tolerance)
+				return c;		
+			if((evaluate(c) > 0 && evaluate(a) > 0) || (evaluate(c) < 0 && evaluate(a) < 0))
+				a = c;
+			else b = c;
+		} //end while
+	return c;
+	} //end bisection method
+
+} //end class Polynomial

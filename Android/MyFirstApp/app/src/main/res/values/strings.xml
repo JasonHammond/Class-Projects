@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Greetings App</string>
+    <string name="enter_fname">Enter first name</string>
+    <string name="enter_lname">Enter last name</string>
+    <string name="button_submit">Submit</string>
+</resources>

@@ -1,0 +1,80 @@
+/* Jason Hammond
+   CSCI4100 - Dr. Cueva-Parra
+   Assignment 2
+
+   This file is meant to test class Polynomial. Requires Polynomial.java.
+-------------------------------------------------------------------------*/
+import java.util.Scanner;
+
+public class TestPolynomial {
+	static public void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		Scanner charIn = new Scanner(System.in);
+		charIn.useDelimiter("");
+		int n = 0; //To hold degree of polynomial
+		double x = 0; //For evaluation of polynomial
+		int i = 0; //Iterator
+		int count = 0; //Used for assigning coefficients to the appropriate term
+		int tempcoef = 1; //For building polynomials from user input
+		double a, b = 0; //For bisection method
+		String start = new String("y"); //Whether to return to start of program
+		String option = new String("y"); //Whether to return to polynomial manipulation menu
+
+		while(start != "n" && start != "N") {
+			System.out.println("Please enter the polynomial you wish to work with. You will be "
+				+ "prompted to enter the coefficient for each term in the polynomial. You may "
+				+ "enter zero if the term is absent from the polynomial.\n\n"
+				+ "What degree polynomial would you like to create? ");
+
+			n = in.nextInt();
+			Polynomial poly = new Polynomial(n+1);
+
+			System.out.println("Please enter the coefficients:");
+			while(count<poly.sizeOf())  {
+				tempcoef = in.nextInt();
+				poly.setCoefficient(tempcoef, (poly.sizeOf()-count-1));
+				count++;
+			}
+
+			for(i=0; i<n; i++)
+				poly.getCoefficient(i);
+			System.out.format("You entered %s.\n", poly.toString());
+
+			while(option != "n" && option != "N") {
+				System.out.println("\n\nWhat would you like to do with this polynomial?\n"
+					+ "\t(E/e) Evaluate it for a particular value of x\n"
+					+ "\t(D/d) Get the derivative of the polynomial\n"
+					+ "\t(R/r) Find the root of the polynomial\n\n"
+					+ "Enter option: ");
+
+				switch(charIn.next()) {
+					case "E": case "e":
+						System.out.print("\n\nEnter a value for x: ");
+						x = in.nextDouble();
+						System.out.format("\nThe polynomial, with x = %f, evaluates to %f.\n\n", x, poly.evaluate(x));
+						break;
+					case "D": case "d":
+						System.out.format("\n\nThe derivative of %s \nis %s.\n\n", poly.toString(), poly.derivative(poly));
+						break;
+					case "R": case "r":
+						System.out.print("\n\nPlease give me two doubles of opposite sign for the bisection method: ");
+						a = in.nextDouble();
+						b = in.nextDouble();
+						System.out.format("\nThe result is: %f\n\n", poly.bisection(a,b));
+						break;
+					default: 
+						System.out.println("Invalid input, please try again.");
+				}
+
+			System.out.print("Would you like to do something else with this polynomial?(y/N)");
+			option = charIn.next();
+			option = charIn.next();
+			}
+
+		System.out.print("Would you like to try another polynomial?(Y/n)");
+		start = charIn.next();
+		}
+	} //end main method
+
+} //end class TestPolynomial
